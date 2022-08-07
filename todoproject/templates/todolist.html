@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My To Do List</title>
+</head>
+<body>
+    <h1>My To Do List</h1>
+</body>
+</html>
+
+<ul>
+    {% for i in all_items %}
+    <li>{{i.content}}
+        <form action="/deleteTodoItem/{{i.id}}/" method = "post">{% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+<form action="/addTodoItem/" method = "post">{% csrf_token %}
+    <input type="text" name="content">
+    <input type="submit" value="Add Todo Item">
+</form>
+
+
+
+
+
+
